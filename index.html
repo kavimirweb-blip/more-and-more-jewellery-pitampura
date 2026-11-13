@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>More &amp; More Designer Jewellery · Pitampura</title>
+<meta name="description" content="More &amp; More Designer Jewellery, Pitampura, New Delhi. Designer pieces, made to be noticed. Enquire on WhatsApp.">
+<meta name="theme-color" content="#3d0b17">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%233d0b17'/%3E%3Cpath d='M16 6l8 7-8 13-8-13z' fill='none' stroke='%23d9b46c' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* BRIEF
+ Business: designer jewellery store, Pitampura, New Delhi. Pieces for occasions and weddings.
+ Personality: refined, warm, unhurried.
+ One idea: "More" said twice. More light, more you. One gem that catches a moving highlight and turns as you scroll.
+ Direction: Editorial serif + object hero. Maroon, ivory, thin champagne gold.
+ Playbook option: (c) box-lid opening plus an object that turns, because no product photography exists yet.
+ Signature moment: the gem turns with scroll, its highlight chasing the pointer. */
+:root{
+  --ivory:#f7f0e4; --paper:#efe5d3; --maroon:#3d0b17; --wine:#5c1626; --gold:#c9a35a; --gold-hi:#e9cf94; --ink:#241418;
+  --serif:"Playfair Display",Georgia,serif; --sans:"Manrope",system-ui,sans-serif;
+  --gut:clamp(20px,4.4vw,72px); --ease:cubic-bezier(.19,.7,.22,1);
+  --fs-display:clamp(3rem,.8rem + 5vw,7.4rem);
+  --fs-h2:clamp(2.3rem,1.3rem + 4vw,5.4rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--ivory);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--gold);color:var(--maroon)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.02;text-wrap:balance}
+em{font-style:italic;color:var(--gold)}
+.label{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;font-weight:400;opacity:.75}
+.label b{color:var(--gold);font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.8em;min-height:50px;padding:.9em 2em;border:1px solid var(--gold);color:var(--gold-hi);background:transparent;text-decoration:none;font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;font-weight:400;transition:background .5s var(--ease),color .5s}
+.btn:hover{background:var(--gold);color:var(--maroon)}
+.btn.solid{background:var(--gold);color:var(--maroon)}
+.btn.solid:hover{background:var(--gold-hi)}
+.btn.dark{color:var(--maroon);border-color:var(--maroon)}
+.btn.dark:hover{background:var(--maroon);color:var(--ivory)}
+
+/* box lid opening */
+.lid{position:fixed;inset:0;z-index:100;pointer-events:none;background:var(--maroon);display:grid;place-items:center;transition:transform 1.5s var(--ease) .6s}
+.lid .mono{font-family:var(--serif);font-style:italic;font-size:clamp(2.4rem,8vw,6rem);color:var(--gold);transition:opacity .6s;display:flex;align-items:center;gap:.25em}
+.lid .mono i{display:block;width:1px;height:1.1em;background:var(--gold);opacity:.6}
+.lid::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.lid.open{transform:translateY(-100%)}
+.lid.open .mono{opacity:0}
+.lid.gone{display:none}
+
+nav{position:fixed;z-index:50;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:20px var(--gut);color:var(--gold-hi)}
+nav .logo{font-family:var(--serif);font-style:italic;font-size:1.5rem;text-decoration:none;letter-spacing:0}
+nav .l{display:flex;gap:30px;align-items:center;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase}
+nav a{text-decoration:none}
+@media(max-width:760px){nav .l a:not(.btn){display:none}nav .btn{padding:.6em 1.2em;min-height:40px}}
+
+/* hero */
+.hero{min-height:100svh;background:radial-gradient(60% 55% at 50% 52%,#6b1a2e 0,var(--maroon) 62%,#26060d 100%);color:var(--ivory);position:relative;overflow:hidden;display:grid;place-items:center;padding:110px var(--gut) 70px}
+.hero h1{font-size:var(--fs-display);position:absolute;z-index:1;line-height:.9;width:100%;left:0;padding:0 var(--gut);display:flex;justify-content:space-between;top:50%;transform:translateY(-50%);pointer-events:none}
+.hero h1 span:last-child{text-align:right}
+.hero h1 em{color:var(--gold-hi)}
+.gem{position:relative;z-index:2;width:min(24vw,330px);aspect-ratio:1;display:grid;place-items:center}
+.gem svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 40px 60px rgba(0,0,0,.45))}
+.gem .glint{position:absolute;inset:0;mix-blend-mode:screen;pointer-events:none;background:radial-gradient(circle at var(--mx,40%) var(--my,30%),rgba(255,255,255,.55),transparent 38%);clip-path:polygon(50% 4%,92% 34%,50% 96%,8% 34%)}
+#gem{transform-origin:50% 55%;transition:transform .15s linear}
+.hero .sub{position:absolute;bottom:42px;left:var(--gut);right:var(--gut);z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.hero .sub p{max-width:38ch;opacity:.85}
+.hero .sub .cta{display:flex;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){
+  .hero{align-content:center}
+  .hero h1{position:static;transform:none;flex-direction:column;align-items:center;text-align:center;padding:0;gap:8px;pointer-events:auto}
+  .hero h1 span:last-child{text-align:center}
+  .gem{width:62vw;margin:6px 0}
+  .hero .sub{position:static;margin-top:20px;flex-direction:column;align-items:flex-start}
+  .hero{display:flex;flex-direction:column;justify-content:center;padding-top:96px}
+}
+
+/* turn: sticky staged */
+.turn{height:340vh;background:var(--maroon);color:var(--ivory);position:relative}
+.stage{position:sticky;top:0;height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 var(--gut);gap:5vw;overflow:hidden}
+.stage .big{font-family:var(--serif);font-size:clamp(5rem,20vw,22rem);line-height:.8;color:rgba(201,163,90,.09);position:absolute;right:-2vw;bottom:-3vw;pointer-events:none;font-style:italic}
+.stage .cap{position:relative;min-height:260px}
+.cap article{position:absolute;inset:0;opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.cap article.on{opacity:1;transform:none}
+.cap h2{font-size:var(--fs-h2);margin:14px 0 18px}
+.cap p{max-width:38ch;opacity:.85}
+.stage .viz{display:grid;place-items:center;position:relative}
+.viz svg{width:min(100%,440px);overflow:visible}
+.prog{position:absolute;left:var(--gut);bottom:34px;display:flex;gap:10px;align-items:center}
+.prog i{width:42px;height:1px;background:rgba(201,163,90,.3);position:relative}
+.prog i::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.prog i.on::after{transform:scaleX(1)}
+@media(max-width:760px){.turn{height:300vh}.stage{grid-template-columns:1fr;align-content:center;gap:12px;padding-top:70px}.stage .viz{order:-1}.viz svg{width:58vw}.stage .cap{min-height:240px}}
+
+/* collections arches */
+.coll{padding:clamp(80px,11vw,150px) var(--gut);background:var(--ivory)}
+.coll .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
+.coll h2{font-size:var(--fs-h2);max-width:12ch}
+.arches{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);align-items:end}
+.arch{position:relative;border-radius:999px 999px 6px 6px;overflow:hidden;color:var(--ivory);padding:0 18px 28px;display:flex;flex-direction:column;justify-content:flex-end;text-align:center;aspect-ratio:3/5;text-decoration:none;transition:transform .8s var(--ease)}
+.arch:nth-child(1){aspect-ratio:3/4.3;background:linear-gradient(180deg,#7a2236,#3d0b17)}
+.arch:nth-child(2){background:linear-gradient(180deg,#d9b46c,#7e5a22);color:var(--maroon)}
+.arch:nth-child(3){aspect-ratio:3/4.6;background:linear-gradient(180deg,#1f4a3b,#0d2018)}
+.arch:nth-child(4){aspect-ratio:3/4;background:linear-gradient(180deg,#e7d9be,#b79d6a);color:var(--maroon)}
+.arch svg{position:absolute;left:50%;top:38%;width:54%;transform:translate(-50%,-50%);fill:none;stroke:currentColor;stroke-width:1.4;opacity:.85;transition:transform .9s var(--ease)}
+.arch h3{font-size:1.9rem;position:relative}
+.arch span{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;position:relative;margin-top:6px;opacity:.8}
+@media(hover:hover){.arch:hover{transform:translateY(-12px)}.arch:hover svg{transform:translate(-50%,-50%) scale(1.1) rotate(4deg)}}
+@media(max-width:900px){.arches{grid-template-columns:repeat(2,1fr)}}
+
+/* craft path */
+.craft{padding:clamp(80px,11vw,150px) var(--gut);background:var(--paper);display:grid;grid-template-columns:.9fr 1.1fr;gap:6vw}
+.craft h2{font-size:var(--fs-h2)}
+.craft .sticky{position:sticky;top:110px;align-self:start}
+.craft p.lead{margin-top:22px;max-width:40ch;font-size:1.05rem}
+.path{list-style:none;position:relative;padding-left:56px}
+.path::before{content:"";position:absolute;left:12px;top:8px;bottom:8px;width:1px;background:rgba(61,11,23,.25)}
+.path .fill{position:absolute;left:12px;top:8px;width:1px;height:0;background:var(--gold);transition:height .2s linear}
+.path li{padding:0 0 70px;position:relative}
+.path li::before{content:"";position:absolute;left:-50px;top:10px;width:13px;height:13px;border:1px solid var(--gold);background:var(--paper);transform:rotate(45deg)}
+.path li.on::before{background:var(--gold)}
+.path h3{font-size:2rem;margin-bottom:6px}
+.path p{max-width:40ch;opacity:.8}
+@media(max-width:860px){.craft{grid-template-columns:1fr}.craft .sticky{position:static}}
+
+/* enquire */
+.enq{background:var(--maroon);color:var(--ivory);padding:clamp(90px,12vw,170px) var(--gut);display:grid;grid-template-columns:1.2fr .8fr;gap:6vw;align-items:center}
+.enq h2{font-size:clamp(3rem,1.4rem + 6vw,8rem)}
+.enq .card{border:1px solid rgba(201,163,90,.35);padding:34px;position:relative}
+.enq .card::before{content:"";position:absolute;inset:7px;border:1px solid rgba(201,163,90,.18);pointer-events:none}
+.enq dl{display:grid;gap:14px;margin:18px 0 28px}
+.enq dt{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);opacity:.9}
+@media(max-width:860px){.enq{grid-template-columns:1fr}}
+
+footer{background:#26060d;color:var(--ivory);padding:0 var(--gut) 100px;overflow:hidden}
+.fw{font-family:var(--serif);font-style:italic;font-size:15.2vw;line-height:.95;color:var(--gold);white-space:nowrap;letter-spacing:-.03em;margin-left:-.5vw;padding-top:20px}
+footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(201,163,90,.25);padding-top:20px;margin-top:14px;font-size:.8rem;opacity:.7}
+.bar{display:none}
+@media(max-width:700px){.bar{display:flex;position:fixed;z-index:60;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));gap:8px}.bar a{flex:1;background:var(--maroon)}.bar a.solid{background:var(--gold)}}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.lid{display:none}html{scroll-behavior:auto}.cap article{opacity:1;position:static;transform:none;margin-bottom:24px}.turn{height:auto}.stage{position:static;height:auto;padding-top:80px;padding-bottom:80px}.cap{min-height:0}.prog{display:none}}
+</style>
+</head>
+<body>
+<div class="lid" id="lid" aria-hidden="true"><div class="mono">M<i></i>M</div></div>
+
+<nav aria-label="Main">
+  <a class="logo" href="#top">More &amp; More</a>
+  <div class="l"><a href="#collections">Collections</a><a href="#craft">Craft</a><a class="btn" href="#enquire">Enquire</a></div>
+</nav>
+
+<main id="top">
+<section class="hero" id="hero">
+  <h1><span>More <em>light.</em></span><span>More <em>you.</em></span></h1>
+  <div class="gem" id="gemwrap" aria-hidden="true">
+    <svg viewBox="0 0 400 400" id="gem">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2cdd5"/><stop offset=".5" stop-color="#d4506a"/><stop offset="1" stop-color="#7b1230"/></linearGradient>
+        <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9cf94"/><stop offset=".5" stop-color="#c9a35a"/><stop offset="1" stop-color="#8a6526"/></linearGradient>
+      </defs>
+      <g stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linejoin="round">
+        <polygon points="200,40 340,140 200,330 60,140" fill="url(#g1)"/>
+        <polygon points="200,40 270,140 200,330" fill="#fff" opacity=".12" stroke="none"/>
+        <polygon points="60,140 340,140 200,330" fill="none"/>
+        <polyline points="130,140 200,40 270,140" fill="none"/>
+        <polyline points="130,140 200,330 270,140" fill="none"/>
+        <line x1="200" y1="40" x2="200" y2="140"/>
+      </g>
+      <path d="M95 230 Q200 420 305 230" fill="none" stroke="url(#g2)" stroke-width="14" stroke-linecap="round" opacity="0"/>
+    </svg>
+    <div class="glint"></div>
+  </div>
+  <div class="sub">
+    <p>Designer jewellery from Pitampura, New Delhi. Pieces made to be noticed, and kept.</p>
+    <div class="cta">
+      <a class="btn solid" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20I%27d%20like%20to%20enquire%20about%20your%20designs." target="_blank" rel="noopener">Enquire on WhatsApp</a>
+      <a class="btn" href="#collections">View collections</a>
+    </div>
+  </div>
+</section>
+
+<section class="turn" id="turn" aria-label="How a piece comes together">
+  <div class="stage">
+    <span class="big" aria-hidden="true">More</span>
+    <div class="cap">
+      <article class="on"><p class="label"><b>01</b> — The stone</p><h2>Chosen for <em>fire.</em></h2><p>Every design starts with the stone. How it takes light decides what is built around it.</p></article>
+      <article><p class="label"><b>02</b> — The setting</p><h2>Held, <em>never hidden.</em></h2><p>Claws, bezels and frames that carry the stone without competing with it.</p></article>
+      <article><p class="label"><b>03</b> — The finish</p><h2>Made to be <em>worn.</em></h2><p>Comfort, balance and polish checked by hand before a piece leaves the counter.</p></article>
+    </div>
+    <div class="viz" aria-hidden="true">
+      <svg viewBox="0 0 400 400" id="gem2">
+        <defs><linearGradient id="h1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9cf94"/><stop offset="1" stop-color="#8a6526"/></linearGradient>
+        <linearGradient id="h2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2cdd5"/><stop offset=".55" stop-color="#d4506a"/><stop offset="1" stop-color="#7b1230"/></linearGradient></defs>
+        <g id="ringband"><ellipse cx="200" cy="270" rx="112" ry="100" fill="none" stroke="url(#h1)" stroke-width="16"/></g>
+        <g id="claws" opacity="0"><path d="M150 168l18 30M250 168l-18 30M200 160v36" stroke="url(#h1)" stroke-width="9" stroke-linecap="round"/></g>
+        <g id="stone" stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-linejoin="round" style="transform-origin:200px 130px">
+          <polygon points="200,60 262,112 200,190 138,112" fill="url(#h2)"/>
+          <polyline points="168,112 200,60 232,112" fill="none"/><polyline points="168,112 200,190 232,112" fill="none"/><line x1="138" y1="112" x2="262" y2="112"/>
+        </g>
+      </svg>
+    </div>
+    <div class="prog" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+  </div>
+</section>
+
+<section class="coll" id="collections">
+  <div class="top">
+    <div class="rv"><p class="label"><b>01</b> — Collections</p><h2 style="margin-top:14px">A piece for every <em>occasion.</em></h2></div>
+    <p class="label rv">Price on request</p>
+  </div>
+  <div class="arches">
+    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20necklace%20designs." target="_blank" rel="noopener"><svg viewBox="0 0 100 100"><path d="M18 20c4 40 20 60 32 60s28-20 32-60"/><path d="M50 80l-6 10 6 6 6-6z"/></svg><h3>Necklaces</h3><span>Enquire</span></a>
+    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20earring%20designs." target="_blank" rel="noopener"><svg viewBox="0 0 100 100"><circle cx="34" cy="26" r="5"/><path d="M34 31v22l-10 18h20z"/><circle cx="70" cy="26" r="5"/><path d="M70 31v22L60 71h20z"/></svg><h3>Earrings</h3><span>Enquire</span></a>
+    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20ring%20designs." target="_blank" rel="noopener"><svg viewBox="0 0 100 100"><ellipse cx="50" cy="66" rx="26" ry="22"/><path d="M50 14l14 14-14 22-14-22z"/></svg><h3>Rings</h3><span>Enquire</span></a>
+    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20bridal%20sets." target="_blank" rel="noopener"><svg viewBox="0 0 100 100"><path d="M14 30c0 40 16 54 36 54s36-14 36-54"/><path d="M30 30c0 24 8 36 20 36s20-12 20-36"/><circle cx="50" cy="70" r="5"/></svg><h3>Bridal sets</h3><span>Enquire</span></a>
+  </div>
+</section>
+
+<section class="craft" id="craft">
+  <div class="sticky rv"><p class="label"><b>02</b> — From idea to counter</p><h2 style="margin-top:14px">Four steps, <em>done slowly.</em></h2><p class="lead">A designer piece is a conversation. Tell us what you imagine; we draw, shape and finish it with you.</p></div>
+  <ol class="path" id="path"><div class="fill" id="fill"></div>
+    <li><h3>Sketch</h3><p>Your idea, drawn. Shape, weight and where the stone sits.</p></li>
+    <li><h3>Cast</h3><p>The design becomes metal, carefully and to size.</p></li>
+    <li><h3>Set</h3><p>Stones placed and secured, one at a time.</p></li>
+    <li><h3>Polish</h3><p>Final finish and a last check before it reaches you.</p></li>
+  </ol>
+</section>
+
+<section class="enq" id="enquire">
+  <h2 class="rv">Tell us what <em>you imagine.</em></h2>
+  <div class="card rv">
+    <p class="label"><b>03</b> — Visit or enquire</p>
+    <dl>
+      <div><dt>Where</dt><dd>Pitampura, New Delhi</dd></div>
+      <div><dt>Call</dt><dd><a href="tel:+918076335728">080763 35728</a></dd></div>
+      <div><dt>Prices</dt><dd>On request, per piece</dd></div>
+    </dl>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn solid" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20I%27d%20like%20to%20enquire%20about%20your%20designs." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn" href="tel:+918076335728">Call</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="fw" aria-hidden="true">More &amp; More</div>
+  <div class="r"><span>More &amp; More Designer Jewellery · Pitampura, New Delhi</span><span>Design demo by <a href="https://github.com/kavimirweb-blip">Kavimir</a></span></div>
+</footer>
+
+<div class="bar"><a class="btn solid" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20I%27d%20like%20to%20enquire%20about%20your%20designs." target="_blank" rel="noopener">WhatsApp</a><a class="btn" href="tel:+918076335728">Call</a></div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lid=document.getElementById('lid'),seen=false;
+  try{seen=sessionStorage.getItem('mm')==='1'}catch(e){}
+  if(seen||reduce){lid.classList.add('gone')}else{setTimeout(function(){lid.classList.add('open')},900);setTimeout(function(){lid.classList.add('gone');try{sessionStorage.setItem('mm','1')}catch(e){}},3000)}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // hero gem: highlight follows pointer; gem turns with scroll
+  var wrap=document.getElementById('gemwrap'),g=document.getElementById('gem');
+  if(!reduce){
+    wrap.addEventListener('pointermove',function(e){var r=wrap.getBoundingClientRect();wrap.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');wrap.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')});
+    addEventListener('scroll',function(){var y=Math.min(scrollY,innerHeight);g.style.transform='scaleX('+(Math.cos(y/innerHeight*Math.PI*.9)*.5+.5+.15)+') translateY('+(y*.12)+'px)'},{passive:true});
+  }
+  // staged turn
+  var turn=document.getElementById('turn'),arts=turn.querySelectorAll('.cap article'),pr=turn.querySelectorAll('.prog i'),stone=document.getElementById('stone'),claws=document.getElementById('claws'),band=document.getElementById('ringband');
+  function stage(){
+    var r=turn.getBoundingClientRect(),tot=r.height-innerHeight,p=Math.max(0,Math.min(1,-r.top/tot));
+    var i=Math.min(2,Math.floor(p*3));
+    arts.forEach(function(a,k){a.classList.toggle('on',k===i)});pr.forEach(function(x,k){x.classList.toggle('on',k<=i)});
+    stone.style.transform='scaleX('+(Math.cos(p*Math.PI*4)*.45+.55)+')';
+    claws.setAttribute('opacity',i>=1?1:0);
+    band.style.opacity=i>=2?1:.35;
+  }
+  if(!reduce){addEventListener('scroll',stage,{passive:true});stage()}
+  // craft path
+  var path=document.getElementById('path'),fill=document.getElementById('fill'),lis=path.querySelectorAll('li');
+  function pth(){var r=path.getBoundingClientRect(),p=Math.max(0,Math.min(1,(innerHeight*.6-r.top)/r.height));fill.style.height=(p*(r.height-16))+'px';lis.forEach(function(li,i){li.classList.toggle('on',p>(i/lis.length)+.05)})}
+  addEventListener('scroll',pth,{passive:true});pth();
+})();
+</script>
+</body>
+</html>
