@@ -101,16 +101,27 @@ nav a{text-decoration:none}
 .coll h2{font-size:var(--fs-h2);max-width:12ch}
 .arches{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,28px);align-items:end}
 .arch{position:relative;border-radius:999px 999px 6px 6px;overflow:hidden;color:var(--ivory);padding:0 18px 28px;display:flex;flex-direction:column;justify-content:flex-end;text-align:center;aspect-ratio:3/5;text-decoration:none;transition:transform .8s var(--ease)}
-.arch:nth-child(1){aspect-ratio:3/4.3;background:linear-gradient(180deg,#7a2236,#3d0b17)}
-.arch:nth-child(2){background:linear-gradient(180deg,#d9b46c,#7e5a22);color:var(--maroon)}
-.arch:nth-child(3){aspect-ratio:3/4.6;background:linear-gradient(180deg,#1f4a3b,#0d2018)}
-.arch:nth-child(4){aspect-ratio:3/4;background:linear-gradient(180deg,#e7d9be,#b79d6a);color:var(--maroon)}
-.arch svg{position:absolute;left:50%;top:38%;width:54%;transform:translate(-50%,-50%);fill:none;stroke:currentColor;stroke-width:1.4;opacity:.85;transition:transform .9s var(--ease)}
+.arch:nth-child(1){aspect-ratio:3/4.3;background:#3d0b17}
+.arch:nth-child(2){background:#3d0b17}
+.arch:nth-child(3){aspect-ratio:3/4.6;background:#3d0b17}
+.arch:nth-child(4){aspect-ratio:3/4;background:#3d0b17}
+.arch .ph{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1.2s var(--ease)}
+.arch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(36,8,14,.78));pointer-events:none}
+.arch h3,.arch span{z-index:2;color:var(--ivory)}
 .arch h3{font-size:1.9rem;position:relative}
 .arch span{font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;position:relative;margin-top:6px;opacity:.8}
-@media(hover:hover){.arch:hover{transform:translateY(-12px)}.arch:hover svg{transform:translate(-50%,-50%) scale(1.1) rotate(4deg)}}
+@media(hover:hover){.arch:hover{transform:translateY(-12px)}.arch:hover .ph{transform:scale(1.08)}}
 @media(max-width:900px){.arches{grid-template-columns:repeat(2,1fr)}}
 
+/* bridal band */
+.bandp{display:grid;grid-template-columns:1.1fr .9fr;min-height:92svh;background:var(--paper)}
+.bp-img{background:url(img/bride.jpg) 50% 30%/cover;position:relative;min-height:60svh}
+.bp-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 60%,var(--paper))}
+.bp-copy{padding:clamp(40px,7vw,110px) var(--gut);align-self:center}
+.bp-copy h2{font-size:var(--fs-h2)}
+.bp-copy h2 em{color:var(--wine)}
+.bp-copy p:not(.label){margin:22px 0 30px;max-width:40ch}
+@media(max-width:860px){.bandp{grid-template-columns:1fr}.bp-img{min-height:62svh}.bp-img::after{background:linear-gradient(180deg,transparent 60%,var(--paper))}}
 /* craft path */
 .craft{padding:clamp(80px,11vw,150px) var(--gut);background:var(--paper);display:grid;grid-template-columns:.9fr 1.1fr;gap:6vw}
 .craft h2{font-size:var(--fs-h2)}
@@ -213,15 +224,20 @@ footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;bor
     <p class="label rv">Price on request</p>
   </div>
   <div class="arches">
-    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20necklace%20designs." target="_blank" rel="noopener"><svg viewBox="0 0 100 100"><path d="M18 20c4 40 20 60 32 60s28-20 32-60"/><path d="M50 80l-6 10 6 6 6-6z"/></svg><h3>Necklaces</h3><span>Enquire</span></a>
-    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20earring%20designs." target="_blank" rel="noopener"><svg viewBox="0 0 100 100"><circle cx="34" cy="26" r="5"/><path d="M34 31v22l-10 18h20z"/><circle cx="70" cy="26" r="5"/><path d="M70 31v22L60 71h20z"/></svg><h3>Earrings</h3><span>Enquire</span></a>
-    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20ring%20designs." target="_blank" rel="noopener"><svg viewBox="0 0 100 100"><ellipse cx="50" cy="66" rx="26" ry="22"/><path d="M50 14l14 14-14 22-14-22z"/></svg><h3>Rings</h3><span>Enquire</span></a>
-    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20bridal%20sets." target="_blank" rel="noopener"><svg viewBox="0 0 100 100"><path d="M14 30c0 40 16 54 36 54s36-14 36-54"/><path d="M30 30c0 24 8 36 20 36s20-12 20-36"/><circle cx="50" cy="70" r="5"/></svg><h3>Bridal sets</h3><span>Enquire</span></a>
+    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20necklace%20designs." target="_blank" rel="noopener"><i class="ph" style="background-image:url(img/necklace.jpg)" role="img" aria-label="Polki necklace with emerald drops on a bust"></i><h3>Necklaces</h3><span>Enquire</span></a>
+    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20earring%20designs." target="_blank" rel="noopener"><i class="ph" style="background-image:url(img/earrings.jpg)" role="img" aria-label="Crystal leaf earrings on black"></i><h3>Earrings</h3><span>Enquire</span></a>
+    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20antique%20designs." target="_blank" rel="noopener"><i class="ph" style="background-image:url(img/antique.jpg)" role="img" aria-label="Antique gold necklace with ruby drop"></i><h3>Antique</h3><span>Enquire</span></a>
+    <a class="arch rv" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20please%20show%20me%20bridal%20sets." target="_blank" rel="noopener"><i class="ph" style="background-image:url(img/bride2.jpg);background-position:50% 70%" role="img" aria-label="Bride wearing a gold choker and maang tikka"></i><h3>Bridal sets</h3><span>Enquire</span></a>
   </div>
 </section>
 
+<section class="bandp" aria-label="Bridal">
+  <div class="bp-img" role="img" aria-label="Bride in red with gold temple jewellery"></div>
+  <div class="bp-copy rv"><p class="label"><b>02</b> — The wedding</p><h2 style="margin-top:14px">Dressed in <em>gold,</em> remembered for good.</h2><p>Necklaces, maang tikkas and full bridal sets, planned around the outfit and the family. Tell us the date; we plan back from it.</p><a class="btn dark" href="https://wa.me/918076335728?text=Hi%20More%20%26%20More%2C%20I%27m%20planning%20for%20a%20wedding." target="_blank" rel="noopener">Plan my bridal look</a></div>
+</section>
+
 <section class="craft" id="craft">
-  <div class="sticky rv"><p class="label"><b>02</b> — From idea to counter</p><h2 style="margin-top:14px">Four steps, <em>done slowly.</em></h2><p class="lead">A designer piece is a conversation. Tell us what you imagine; we draw, shape and finish it with you.</p></div>
+  <div class="sticky rv"><p class="label"><b>03</b> — From idea to counter</p><h2 style="margin-top:14px">Four steps, <em>done slowly.</em></h2><p class="lead">A designer piece is a conversation. Tell us what you imagine; we draw, shape and finish it with you.</p></div>
   <ol class="path" id="path"><div class="fill" id="fill"></div>
     <li><h3>Sketch</h3><p>Your idea, drawn. Shape, weight and where the stone sits.</p></li>
     <li><h3>Cast</h3><p>The design becomes metal, carefully and to size.</p></li>
@@ -233,7 +249,7 @@ footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;bor
 <section class="enq" id="enquire">
   <h2 class="rv">Tell us what <em>you imagine.</em></h2>
   <div class="card rv">
-    <p class="label"><b>03</b> — Visit or enquire</p>
+    <p class="label"><b>04</b> — Visit or enquire</p>
     <dl>
       <div><dt>Where</dt><dd>Pitampura, New Delhi</dd></div>
       <div><dt>Call</dt><dd><a href="tel:+918076335728">080763 35728</a></dd></div>
