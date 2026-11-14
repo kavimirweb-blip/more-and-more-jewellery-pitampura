@@ -62,10 +62,10 @@ nav a{text-decoration:none}
 .hero h1{font-size:var(--fs-display);position:absolute;z-index:1;line-height:.9;width:100%;left:0;padding:0 var(--gut);display:flex;justify-content:space-between;top:50%;transform:translateY(-50%);pointer-events:none}
 .hero h1 span:last-child{text-align:right}
 .hero h1 em{color:var(--gold-hi)}
-.gem{position:relative;z-index:2;width:min(24vw,330px);aspect-ratio:1;display:grid;place-items:center}
-.gem svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 40px 60px rgba(0,0,0,.45))}
-.gem .glint{position:absolute;inset:0;mix-blend-mode:screen;pointer-events:none;background:radial-gradient(circle at var(--mx,40%) var(--my,30%),rgba(255,255,255,.55),transparent 38%);clip-path:polygon(50% 4%,92% 34%,50% 96%,8% 34%)}
-#gem{transform-origin:50% 55%;transition:transform .15s linear}
+.gem{position:relative;z-index:2;width:min(25vw,340px);aspect-ratio:4/5;border-radius:999px 999px 14px 14px;overflow:hidden;box-shadow:0 40px 80px -20px rgba(0,0,0,.6),0 0 0 1px rgba(233,207,148,.35)}
+.gem img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block;transform:scale(1.05)}
+.gem .glint{position:absolute;inset:0;mix-blend-mode:soft-light;pointer-events:none;background:radial-gradient(circle at var(--mx,45%) var(--my,35%),rgba(255,255,255,.7),transparent 42%)}
+#gem{transform-origin:50% 50%;transition:transform .2s linear}
 .hero .sub{position:absolute;bottom:42px;left:var(--gut);right:var(--gut);z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .hero .sub p{max-width:38ch;opacity:.85}
 .hero .sub .cta{display:flex;gap:12px;flex-wrap:wrap}
@@ -88,12 +88,14 @@ nav a{text-decoration:none}
 .cap h2{font-size:var(--fs-h2);margin:14px 0 18px}
 .cap p{max-width:38ch;opacity:.85}
 .stage .viz{display:grid;place-items:center;position:relative}
-.viz svg{width:min(100%,440px);overflow:visible}
+.vframe{position:relative;width:min(100%,420px);aspect-ratio:4/5;border-radius:999px 999px 10px 10px;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 0 1px rgba(233,207,148,.3)}
+.vimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity .9s var(--ease),transform 1.6s var(--ease)}
+.vimg.on{opacity:1;transform:scale(1)}
 .prog{position:absolute;left:var(--gut);bottom:34px;display:flex;gap:10px;align-items:center}
 .prog i{width:42px;height:1px;background:rgba(201,163,90,.3);position:relative}
 .prog i::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
 .prog i.on::after{transform:scaleX(1)}
-@media(max-width:760px){.turn{height:300vh}.stage{grid-template-columns:1fr;align-content:center;gap:12px;padding-top:70px}.stage .viz{order:-1}.viz svg{width:58vw}.stage .cap{min-height:240px}}
+@media(max-width:760px){.turn{height:300vh}.stage{grid-template-columns:1fr;align-content:center;gap:12px;padding-top:70px}.stage .viz{order:-1}.vframe{width:min(52vw,230px)}.stage .cap{min-height:240px}}
 
 /* collections arches */
 .coll{padding:clamp(80px,11vw,150px) var(--gut);background:var(--ivory)}
@@ -167,23 +169,9 @@ footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;bor
 <main id="top">
 <section class="hero" id="hero">
   <h1><span>More <em>light.</em></span><span>More <em>you.</em></span></h1>
-  <div class="gem" id="gemwrap" aria-hidden="true">
-    <svg viewBox="0 0 400 400" id="gem">
-      <defs>
-        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2cdd5"/><stop offset=".5" stop-color="#d4506a"/><stop offset="1" stop-color="#7b1230"/></linearGradient>
-        <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9cf94"/><stop offset=".5" stop-color="#c9a35a"/><stop offset="1" stop-color="#8a6526"/></linearGradient>
-      </defs>
-      <g stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linejoin="round">
-        <polygon points="200,40 340,140 200,330 60,140" fill="url(#g1)"/>
-        <polygon points="200,40 270,140 200,330" fill="#fff" opacity=".12" stroke="none"/>
-        <polygon points="60,140 340,140 200,330" fill="none"/>
-        <polyline points="130,140 200,40 270,140" fill="none"/>
-        <polyline points="130,140 200,330 270,140" fill="none"/>
-        <line x1="200" y1="40" x2="200" y2="140"/>
-      </g>
-      <path d="M95 230 Q200 420 305 230" fill="none" stroke="url(#g2)" stroke-width="14" stroke-linecap="round" opacity="0"/>
-    </svg>
-    <div class="glint"></div>
+  <div class="gem" id="gemwrap">
+    <img id="gem" src="img/dia-hero.jpg" alt="Diamond ring in a halo setting resting on rose satin" fetchpriority="high">
+    <div class="glint" aria-hidden="true"></div>
   </div>
   <div class="sub">
     <p>Designer jewellery from Pitampura, New Delhi. Pieces made to be noticed, and kept.</p>
@@ -202,17 +190,12 @@ footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;bor
       <article><p class="label"><b>02</b> — The setting</p><h2>Held, <em>never hidden.</em></h2><p>Claws, bezels and frames that carry the stone without competing with it.</p></article>
       <article><p class="label"><b>03</b> — The finish</p><h2>Made to be <em>worn.</em></h2><p>Comfort, balance and polish checked by hand before a piece leaves the counter.</p></article>
     </div>
-    <div class="viz" aria-hidden="true">
-      <svg viewBox="0 0 400 400" id="gem2">
-        <defs><linearGradient id="h1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9cf94"/><stop offset="1" stop-color="#8a6526"/></linearGradient>
-        <linearGradient id="h2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2cdd5"/><stop offset=".55" stop-color="#d4506a"/><stop offset="1" stop-color="#7b1230"/></linearGradient></defs>
-        <g id="ringband"><ellipse cx="200" cy="270" rx="112" ry="100" fill="none" stroke="url(#h1)" stroke-width="16"/></g>
-        <g id="claws" opacity="0"><path d="M150 168l18 30M250 168l-18 30M200 160v36" stroke="url(#h1)" stroke-width="9" stroke-linecap="round"/></g>
-        <g id="stone" stroke="rgba(255,255,255,.55)" stroke-width="1.2" stroke-linejoin="round" style="transform-origin:200px 130px">
-          <polygon points="200,60 262,112 200,190 138,112" fill="url(#h2)"/>
-          <polyline points="168,112 200,60 232,112" fill="none"/><polyline points="168,112 200,190 232,112" fill="none"/><line x1="138" y1="112" x2="262" y2="112"/>
-        </g>
-      </svg>
+    <div class="viz">
+      <figure class="vframe">
+        <img class="vimg on" src="img/dia-stone.jpg" alt="Round brilliant diamond in a claw setting, close up">
+        <img class="vimg" src="img/dia-setting.jpg" alt="Pair of halo diamond earrings on black" loading="lazy">
+        <img class="vimg" src="img/dia-finish.jpg" alt="Diamond rings with a polished finish on black glass" loading="lazy">
+      </figure>
     </div>
     <div class="prog" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
   </div>
@@ -283,17 +266,15 @@ footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;bor
   var wrap=document.getElementById('gemwrap'),g=document.getElementById('gem');
   if(!reduce){
     wrap.addEventListener('pointermove',function(e){var r=wrap.getBoundingClientRect();wrap.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');wrap.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')});
-    addEventListener('scroll',function(){var y=Math.min(scrollY,innerHeight);g.style.transform='scaleX('+(Math.cos(y/innerHeight*Math.PI*.9)*.5+.5+.15)+') translateY('+(y*.12)+'px)'},{passive:true});
+    addEventListener('scroll',function(){var y=Math.min(scrollY,innerHeight);g.style.transform='scale('+(1.05+y/innerHeight*.12)+')'},{passive:true});
   }
   // staged turn
-  var turn=document.getElementById('turn'),arts=turn.querySelectorAll('.cap article'),pr=turn.querySelectorAll('.prog i'),stone=document.getElementById('stone'),claws=document.getElementById('claws'),band=document.getElementById('ringband');
+  var turn=document.getElementById('turn'),arts=turn.querySelectorAll('.cap article'),pr=turn.querySelectorAll('.prog i'),vimgs=turn.querySelectorAll('.vimg');
   function stage(){
     var r=turn.getBoundingClientRect(),tot=r.height-innerHeight,p=Math.max(0,Math.min(1,-r.top/tot));
     var i=Math.min(2,Math.floor(p*3));
     arts.forEach(function(a,k){a.classList.toggle('on',k===i)});pr.forEach(function(x,k){x.classList.toggle('on',k<=i)});
-    stone.style.transform='scaleX('+(Math.cos(p*Math.PI*4)*.45+.55)+')';
-    claws.setAttribute('opacity',i>=1?1:0);
-    band.style.opacity=i>=2?1:.35;
+    vimgs.forEach(function(m,k){m.classList.toggle('on',k===i)});
   }
   if(!reduce){addEventListener('scroll',stage,{passive:true});stage()}
   // craft path
