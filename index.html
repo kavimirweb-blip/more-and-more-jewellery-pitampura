@@ -58,26 +58,22 @@ nav a{text-decoration:none}
 @media(max-width:760px){nav .l a:not(.btn){display:none}nav .btn{padding:.6em 1.2em;min-height:40px}}
 
 /* hero: red satin, diamond floats and spins with scroll */
-.herowrap{height:240vh;position:relative}
-.hero{position:sticky;top:0;height:100svh;min-height:560px;color:var(--ivory);overflow:hidden;display:grid;place-items:center;padding:110px var(--gut) 70px;
+.hero{position:relative;height:100svh;min-height:560px;color:var(--ivory);overflow:hidden;display:grid;place-items:center;padding:110px var(--gut) 70px;
   background:radial-gradient(70% 65% at 50% 52%,rgba(120,10,25,.12) 0,rgba(38,4,10,.55) 70%,rgba(20,2,6,.88) 100%),url(img/cloth.jpg) 50% var(--cy,50%)/cover,#5a0c18}
 .hero::after{content:"";position:absolute;left:50%;bottom:17%;width:min(46vw,640px);height:60px;transform:translateX(-50%);background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.55),transparent 70%);z-index:1;pointer-events:none}
 .hero h1{font-size:var(--fs-display);position:absolute;z-index:1;line-height:.9;width:100%;left:0;padding:0 var(--gut);display:flex;justify-content:space-between;top:50%;transform:translateY(-50%);pointer-events:none;text-shadow:0 4px 30px rgba(20,2,6,.6)}
 .hero h1 span:last-child{text-align:right}
 .hero h1 em{color:var(--gold-hi)}
-.gem{position:relative;z-index:2;width:min(36vw,520px);perspective:1400px;margin-top:-4vh}
-.spinner{position:relative;transform-style:preserve-3d;will-change:transform}
-.spinner img{width:100%;height:auto;display:block}
-.spinner img.edge{position:absolute;left:0;top:0}
+.gem{position:relative;z-index:2;width:min(31vw,470px);margin-top:-4vh;aspect-ratio:924/613}
+.gem canvas,.gem img{position:absolute;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(0 28px 30px rgba(20,2,6,.55))}
 .hero .sub{position:absolute;bottom:42px;left:var(--gut);right:var(--gut);z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
 .hero .sub p{max-width:38ch;opacity:.92;text-shadow:0 2px 14px rgba(20,2,6,.8)}
 .hero .sub .cta{display:flex;gap:12px;flex-wrap:wrap}
 @media(max-width:760px){
-  .herowrap{height:210vh}
   .hero{align-content:center}
   .hero h1{position:static;transform:none;flex-direction:column;align-items:center;text-align:center;padding:0;gap:8px;pointer-events:auto}
   .hero h1 span:last-child{text-align:center}
-  .gem{width:74vw;margin:14px 0 8px;perspective:2600px}
+  .gem{width:88vw;margin:10px 0 6px}
   .hero::after{display:none}
   .hero .sub{position:static;margin-top:20px;flex-direction:column;align-items:flex-start}
   .hero{display:flex;flex-direction:column;justify-content:center;padding-top:96px}
@@ -160,7 +156,7 @@ footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;bor
 @media(max-width:700px){.bar{display:flex;position:fixed;z-index:60;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));gap:8px}.bar a{flex:1;background:var(--maroon)}.bar a.solid{background:var(--gold)}}
 .rv{opacity:0;transform:translateY(26px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
 .rv.on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.herowrap{height:auto}.hero{position:relative}.rv{opacity:1;transform:none}.lid{display:none}html{scroll-behavior:auto}.cap article{opacity:1;position:static;transform:none;margin-bottom:24px}.turn{height:auto}.stage{position:static;height:auto;padding-top:80px;padding-bottom:80px}.cap{min-height:0}.prog{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.lid{display:none}html{scroll-behavior:auto}.cap article{opacity:1;position:static;transform:none;margin-bottom:24px}.turn{height:auto}.stage{position:static;height:auto;padding-top:80px;padding-bottom:80px}.cap{min-height:0}.prog{display:none}}
 </style>
 </head>
 <body>
@@ -172,11 +168,11 @@ footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;bor
 </nav>
 
 <main id="top">
-<div class="herowrap" id="herowrap">
 <section class="hero" id="hero">
   <h1><span>More <em>light.</em></span><span>More <em>you.</em></span></h1>
   <div class="gem" id="gemwrap">
-    <div id="gem" class="spinner"><img src="img/diamond.webp" alt="A round brilliant diamond" fetchpriority="high"></div>
+    <img id="gemimg" src="img/dia3d/d09.webp" alt="A round brilliant diamond" fetchpriority="high">
+    <canvas id="gem" aria-hidden="true" hidden></canvas>
   </div>
   <div class="sub">
     <p>Designer jewellery from Pitampura, New Delhi. Pieces made to be noticed, and kept.</p>
@@ -186,7 +182,6 @@ footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;bor
     </div>
   </div>
 </section>
-</div>
 
 <section class="turn" id="turn" aria-label="How a piece comes together">
   <div class="stage">
@@ -268,18 +263,21 @@ footer .r{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;bor
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
 
-  // hero: diamond spins with scroll while the hero stays pinned over the cloth
-  var hw=document.getElementById('herowrap'),g=document.getElementById('gem'),hero=document.getElementById('hero');
-  function spin(){
-    var r=hw.getBoundingClientRect(),tot=hw.offsetHeight-innerHeight,p=Math.max(0,Math.min(1,-r.top/tot));
-    g.style.transform='rotateY('+(p*540)+'deg) translateY('+(Math.sin(p*Math.PI)*-16)+'px) scale('+(1+p*.06)+')';
-    hero.style.setProperty('--cy',(50+p*14)+'%');
+  // hero: a 3D-rendered diamond turns about 36 degrees as the hero scrolls away (page keeps scrolling normally)
+  var hero=document.getElementById('hero'),cv=document.getElementById('gem'),fallback=document.getElementById('gemimg');
+  var NF=19,frames=[],loaded=0;
+  function drawAt(p){
+    var ctx=cv.getContext('2d'),f=p*(NF-1),i=Math.floor(f),t=f-i;if(i>=NF-1){i=NF-1;t=0}
+    ctx.clearRect(0,0,cv.width,cv.height);
+    ctx.globalAlpha=1;ctx.drawImage(frames[i],0,0,cv.width,cv.height);
+    if(t>0.001&&frames[i+1]){ctx.globalAlpha=t;ctx.drawImage(frames[i+1],0,0,cv.width,cv.height)}
+    ctx.globalAlpha=1;
   }
+  function prog(){return Math.max(0,Math.min(1,scrollY/(innerHeight*0.95)))}
+  function onScroll(){var p=prog();drawAt(p);hero.style.setProperty('--cy',(50+p*14)+'%');cv.style.transform='translateY('+(p*18)+'px)'}
   if(!reduce){
-    // stack thin copies behind the front face so the diamond keeps a solid edge while it turns
-    var front=g.querySelector('img');
-    for(var k=1;k<=12;k++){var c=front.cloneNode();c.removeAttribute('fetchpriority');c.alt='';c.setAttribute('aria-hidden','true');c.className='edge';c.style.transform='translateZ('+(-k*3)+'px)';c.style.filter=k>=12?'none':'brightness(.72)';g.appendChild(c)}
-    addEventListener('scroll',spin,{passive:true});addEventListener('resize',spin);spin()}
+    for(var k=0;k<NF;k++){(function(k){var im=new Image();im.onload=function(){loaded++;if(loaded===NF){cv.width=frames[0].naturalWidth;cv.height=frames[0].naturalHeight;cv.hidden=false;fallback.style.display='none';onScroll();addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll)}};im.src='img/dia3d/d'+(k<10?'0':'')+k+'.webp';frames[k]=im})(k)}
+  }
   // staged turn
   var turn=document.getElementById('turn'),arts=turn.querySelectorAll('.cap article'),pr=turn.querySelectorAll('.prog i'),vimgs=turn.querySelectorAll('.vimg');
   function stage(){
